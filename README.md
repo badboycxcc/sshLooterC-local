@@ -13,9 +13,9 @@ markdown
 ```bash
 sudo apt update
 sudo apt install gcc libpam0g-dev make -y
-
+```
 CentOS / Rocky Linux / AlmaLinux / Red Hat / RHEL 系列：bash
-
+```
 sudo yum install gcc pam-devel make -y
 ```
 # 或使用 dnf（新版系统）：
